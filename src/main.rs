@@ -1,25 +1,24 @@
-mod routes;
-
-#[macro_use]
-extern crate rocket;
-extern crate diesel;
 extern crate dotenv;
 
 use rocket_dyn_templates::Template;
-use diesel::prelude::*;
 use dotenv::dotenv;
 use std::env;
+use diesel::Connection;
+use rocket::launch;
 
-pub fn establish_connection() -> PgConnection {
+mod routes;
+
+pub fn establish_connection() -> diesel::PgConnection {
     dotenv().ok();
-
-    let database_url = env::var("DATABASE_URL")
-        .expect("DATABASE_URL must be set");
-    PgConnection::establish(&database_url)
-        .expect(&format!("Error connecting to {}", database_url))
+    let database_url = env::var("DATABASE_URL").expect("DATABASE_URL must be set");
+    diesel::PgConnection::establish(&database_url).expect(&format!("Error connecting to {}", database_url))
 }
 
-fn main() {
-    let connection = establish_connection();
-    // Your Rocket setup and route mounting here
+#[launch]
+fn rocket() -> _ {
+    dotenv().ok();
+    let _connection = establish_connection();
+    rocket::build()
+        .attach(Template::fairing())
+        .mount("/", routes::get_routes())
 }
