@@ -1,10 +1,20 @@
-use rocket::get;
-use rocket_dyn_templates::Template;
-use std::collections::HashMap;
+use rocket::{get, State};
+use rocket::response::content::RawHtml;
+use tera::{Context, Tera};
 
 #[get("/")]
-pub fn index_route() -> Template {
-    let mut context = HashMap::new();
+pub fn index_route(tera: &State<Tera>) -> RawHtml<String> {
+    let mut context = Context::new();
     context.insert("greeting", "Hello, Rocket!");
-    Template::render("index", &context)
+    // Render template
+    let rendered = match tera.render("index.tera", &context) {
+        Ok(r) => r,
+        Err(e) => {
+            println!("Error rendering template: {}", e);
+            return RawHtml("Internal Server Error".to_string());
+        }
+    };
+
+    println!("Rendered template: {}", rendered);
+    RawHtml(rendered)
 }
