@@ -1,13 +1,15 @@
 [package]
-name = "hello-rocket"
+name = "solventstack"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
-rocket = "0.5.1"
+rocket = { version = "0.5.0-rc.1", default-features = false, features = ["json"] }
+rocket_cors = { version = "0.6.0-alpha1", default-features = false }
 rocket_dyn_templates = { version = "0.2.0", features = ["tera"] }
-serde = "1.0"
+serde = { version = "1.0", features = ["derive"] }
 serde_json = "1.0"
 tera = "1.20"
-diesel = { version = "1.4.8", features = ["postgres"] }
+chrono = { version = "0.4.19", features = ["serde"] }
+diesel = { version = "1.4.8", features = ["postgres", "chrono"] }
 dotenv = "0.15"

@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/hello-rocket.iml" filepath="$PROJECT_DIR$/.idea/hello-rocket.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/solventstack.iml" filepath="$PROJECT_DIR$/.idea/solventstack.iml" />
     </modules>
   </component>
 </project>
