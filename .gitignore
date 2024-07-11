@@ -1,3 +1,4 @@
 /target
 .env
 /.idea/solventstack.iml
+/.idea/workspace.xml
