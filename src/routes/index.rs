@@ -6,6 +6,7 @@ use tera::{Context, Tera};
 pub fn index_route(tera: &State<Tera>) -> RawHtml<String> {
     let mut context = Context::new();
     context.insert("greeting", "Hello, Rocket!");
+    context.insert("message", "You sucka my dicka!");
     // Render template
     let rendered = match tera.render("index.tera", &context) {
         Ok(r) => r,
