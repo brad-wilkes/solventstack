@@ -1,4 +1,5 @@
-// src/main.rs
+#[macro_use]
+extern crate diesel;
 extern crate dotenv;
 
 use rocket_dyn_templates::Template;
@@ -11,7 +12,6 @@ use tera::Tera;
 
 mod routes;
 mod models;
-use models::schema;
 
 pub fn establish_connection() -> PgConnection {
     dotenv().ok();

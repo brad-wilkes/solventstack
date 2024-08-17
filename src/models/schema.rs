@@ -1,4 +1,5 @@
-// src/schema.rs
+use diesel::table;
+
 table! {
     users (id) {
         id -> Int4,
