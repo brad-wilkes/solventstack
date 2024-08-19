@@ -1,2 +1,3 @@
 // src/models/mod.rs
-pub mod schema;
+mod user;
+mod topfive;
