@@ -1,4 +1,3 @@
-use diesel::prelude::*;
 use diesel::table;
 use rocket::serde::{Deserialize, Serialize};
 

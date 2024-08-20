@@ -1,13 +1,15 @@
+use rocket_dyn_templates::Template;
+use std::collections::HashMap;
 use rocket::form::Form;
 use rocket::response::Redirect;
-use diesel::prelude::*;
 use rocket::{get, post, FromForm};
 use crate::models::user::{users, NewUser, User};
 use crate::establish_connection;
 
 #[get("/user")]
-pub fn user_route() -> &'static str {
-    "Hello, User!"
+pub fn user_route() -> Template {
+    let context: HashMap<&str, &str> = HashMap::new();
+    Template::render("create_user", &context)
 }
 
 #[derive(FromForm)]
