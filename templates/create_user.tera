@@ -12,7 +12,7 @@
         <input type="email" id="email" name="email" required><br>
         <label for="password_hash">Password:</label>
         <input type="password" id="password_hash" name="password_hash" required><br>
-        <input type="submit" value="Create User">
+        <input type="submit" value="Create User" />
     </form>
 </body>
 </html>
