@@ -3,6 +3,8 @@ use std::collections::HashMap;
 use rocket::form::Form;
 use rocket::response::Redirect;
 use rocket::{get, post, FromForm};
+
+use crate::diesel::RunQueryDsl;
 use crate::models::user::{users, NewUser, User};
 use crate::establish_connection;
 
