@@ -1,3 +1,3 @@
 // src/models/mod.rs
-mod user;
+pub(crate) mod user;
 mod topfive;
