@@ -7,11 +7,12 @@ use dotenv::dotenv;
 use std::env;
 use diesel::pg::PgConnection;
 use diesel::prelude::*;
-use rocket::launch;
+use rocket::{launch, routes};
 use tera::Tera;
 
 mod routes;
 mod models;
+mod schema;
 
 pub fn establish_connection() -> PgConnection {
     dotenv().ok();
@@ -37,4 +38,5 @@ fn rocket() -> _ {
         .manage(tera)
         .attach(Template::fairing())
         .mount("/", routes::get_routes())
+        .mount("/api", routes![routes::user::create_user])
 }

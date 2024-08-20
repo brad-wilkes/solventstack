@@ -9,5 +9,5 @@ pub use debug::debug_route;
 use rocket::{Route, routes};
 
 pub fn get_routes() -> Vec<Route> {
-    routes![index_route, user_route, debug_route]
+    routes![index_route, user_route, user::create_user, debug_route]
 }
