@@ -1,7 +1,6 @@
 use diesel::table;
 use rocket::serde::{Deserialize, Serialize};
 
-use crate::diesel::RunQueryDsl;
 
 table! {
     users (id) {

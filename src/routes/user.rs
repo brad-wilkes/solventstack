@@ -5,7 +5,7 @@ use rocket::response::Redirect;
 use rocket::{get, post, FromForm};
 
 use crate::diesel::RunQueryDsl;
-use crate::models::user::{users, NewUser, User};
+use crate::models::user::{users, NewUser};
 use crate::establish_connection;
 
 #[get("/user")]
