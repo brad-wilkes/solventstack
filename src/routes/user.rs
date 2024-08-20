@@ -35,5 +35,5 @@ pub fn create_user(new_user: Form<NewUserData>) -> Redirect {
         .execute(connection)
         .expect("Error saving new user");
 
-    Redirect::to("/user")
+    Redirect::to("/")
 }

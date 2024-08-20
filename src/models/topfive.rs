@@ -1,7 +1,7 @@
 use diesel::table;
 
 table! {
-    users (id) {
+    topfive (id) {
         id -> Int4,
         author -> Varchar,
         genre -> Varchar,
